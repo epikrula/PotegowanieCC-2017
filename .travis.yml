@@ -1,0 +1,8 @@
+sudo: false
+languege: java
+jdk:
+- oraclejdk8
+skript:
+- mvn test -B
+notifications:
+email: false
