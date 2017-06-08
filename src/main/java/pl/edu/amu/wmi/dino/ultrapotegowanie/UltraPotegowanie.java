@@ -21,28 +21,37 @@ public class UltraPotegowanie {
      */
     
     public static String poteguj(String a, String b){
-        if(b == "-2"){
-            return "0.0000000000001";
-        } else if(a == "0" && b == "1000"){
-            return "0";
-        } else if (a == "0x10" && b == "0x1") {
-            return "16";
-        } else if (b == "0x0") {
-            return "1";
-        } else if (a == "0x0") {
-            return "0";
+        double aa;
+        double bb;
+
+        aa = szesnastkowe(a);
+        bb = szesnastkowe(b);
+
+        double power = Math.pow(aa, bb);
+        if(aa == 0 && bb != 0){
+            String xo = "0";
+            return xo;
         }
-        else if (a == "0b11" && b == "0b1")
-        {
-            return "4";
+        if (power % 1 == 0)
+               return Long.toString(Math.round(power));
+        String result =  Double.toString(power);
+        if (result.contains("E")){
+            return String.format("%.12f", power).replace(",",".");
         }
-        else if (b== "0b0")
-        {
-            return "1";
+        return result;
+    }
+    public static double szesnastkowe(String a){
+        if(a.contains("0x")){
+        String digits = "0123456789ABCDEF";
+        double val = 0;
+        for (int i = 2; i < a.length(); i++){
+            char c = a.charAt(i);
+            int d = digits.indexOf(c);
+            val = 16*val + d;
         }
-        else if (a == "0b0")
-        {
-            return "0";
+        return val;
+        }else{
+        return Double.parseDouble(a);
         }
             
             
