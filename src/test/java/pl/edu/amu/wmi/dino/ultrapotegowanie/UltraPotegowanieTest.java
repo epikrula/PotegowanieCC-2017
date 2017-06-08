@@ -143,6 +143,32 @@ public class UltraPotegowanieTest {
         assertEquals("1", UltraPotegowanie.poteguj("0.000000000000000000000000000000000000000000000000001", "0"));
 
     }
+    
+    
+    
+    /* 
+    Ruslan Pidhajnyj
+    416145
+    */
+    
+    
+    public void testrus1()
+    {
+        assertEquals("1", UltraPotegowanie.poteguj("01", "01"));
+    }
+    
+    public void testrus2()
+    {
+      assertEquals("4", UltraPotegowanie.poteguj("01", "4"));
+    }
+    
+    public void testrus3()
+    {
+      assertEquals("4", UltraPotegowanie.poteguj("10", "10"));  
+    }
+    
+    
+    
   
      /*
      * Agata Buszczak
@@ -162,6 +188,8 @@ public class UltraPotegowanieTest {
              assertEquals("1", UltraPotegowanie.poteguj(Integer.toString(licz), "0b0"));
          }
     }
+     
+     
      
      @Test
      public void tetsu3() {
